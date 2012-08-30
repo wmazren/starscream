@@ -1,0 +1,9 @@
+<div class="container">
+  <% flash.each do |key, value| %>
+    <br>
+    <div class="alert alert-block alert-<%= key == :notice ? "success" : key %> fadeout" data-dismiss="alert">
+      <a class="close">×</a>
+      <strong><%= key.capitalize %>:</strong> <%= value %>
+    </div>
+  <% end %>
+</div>

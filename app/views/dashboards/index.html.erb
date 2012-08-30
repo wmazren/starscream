@@ -1,0 +1,24 @@
+<% if current_user.admin? %>
+  <div class="container">
+    <%= render 'dashboards/admin/stats' %>
+
+    <div class="row">
+      <div class="span8">
+        <%= render 'dashboards/admin/messages' %>
+      </div>
+
+      <div class="span4">
+        <%= render 'dashboards/admin/shortcuts' %>
+      </div> <!-- /span6 -->
+    </div> <!-- /row -->
+  </div>
+<% else %>
+  <div class="container">
+    <br>
+    <div class="row">
+      <%= render 'dashboards/member/my_goals' %>
+      <%= render 'dashboards/member/shortcuts' %>
+      <%= render 'dashboards/member/tips' %>
+    </div>
+  </div>
+<% end %>

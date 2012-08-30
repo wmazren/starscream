@@ -1,0 +1,35 @@
+<br>
+<div class="container">
+  <% if @period_default > 0 %>
+    <div class="alert">
+      <p>A default <strong>'Performance Review Period'</strong>has been created. Please change the 'Performance Review Period' name before you continue!</p>
+    </div>
+  <% end %>
+
+  <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="periods">
+    <thead>
+      <tr>
+        <th>Period Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>State</th>
+        <th class="td-actions">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @periods.each do |period| %>
+        <tr>
+          <td><%= link_to period.name, period_path(period) %></td>
+          <td><%= period.start_date %></td>
+          <td><%= period.end_date %></td>
+          <td><%= period.state %></td>
+          <td class="td-actions">
+            <%= link_to "Edit", edit_period_path(period), :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>

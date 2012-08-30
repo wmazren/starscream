@@ -1,0 +1,98 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner-custom">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="/"><img id="logo" src="/assets/ontargetlogo2.png"></a>
+
+      <% if user_signed_in? %>
+        <div class="btn-group pull-right">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i> <%= current_user.email %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:;"><%= link_to "Edit Profile", edit_user_path(current_user) %></a></li>
+            <li class="divider"></li>
+            <li><a href="javascript:;"><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></a></li>
+          </ul>
+        </div>
+
+        <% if current_user.admin? %>
+          <div class="btn-group pull-right">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> <%= current_user.account.name %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><%= link_to "Edit Account", edit_account_path(current_user.account_id) %></a></li>
+            </ul>
+          </div>
+        <% end %>
+
+        <% if current_user.admin? %>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><%= link_to 'Home', dashboards_path %></li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Performance Review <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/goals">My Goals</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/reviews">My Reviews</a></li>
+                  </ul>
+              </li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administration <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/users">List Users</a></li>
+                    <li><a href="/users/new">Create User</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/periods">List Periods</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/reviews">List Reviews</a></li>
+                  </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        <% else %>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><%= link_to 'Home', dashboards_path %></li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">My Performance Review <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/goals">My Goals</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/reviews">My Reviews</a></li>
+                  </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        <% end %>
+      <% else %>
+        <div class="btn-group pull-right">
+            <%= link_to 'Login', new_user_session_path, :class => 'btn btn-primary btn-large' %>
+        </div>
+        <div class="btn-group pull-right">
+            <%= link_to 'Sign Up', new_user_registration_path, :class => 'btn btn-success btn-large' %>
+        </div>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Features', static_features_path %></li>
+            <li><%= link_to 'Pricing', static_pricing_path %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      <% end %>
+    </div>
+  </div>
+</div>

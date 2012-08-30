@@ -1,0 +1,61 @@
+<br><br>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <div class="widget ">
+        <div class="widget-header">
+          <i class="icon-user"></i>
+          <h3>User Account for: <%= @user.first_name%></h3>
+        </div> <!-- /widget-header -->
+
+        <div class="widget-content">
+          <div class="tabbable">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#profile" data-toggle="tab">User Account</a>
+              </li>
+            </ul>
+
+            <br>
+
+            <div class="tab-content">
+              <div class="tab-pane active" id="profile">
+                <h3>Patient Details</h3>
+                <dl class="dl-horizontal">
+                  <dt>First Name :</dt>
+                    <dd><%= @user.first_name %></dd>
+                  <dt>Last Name :</dt>
+                    <dd><%= @user.last_name %></dd>
+                  <dt>Username :</dt>
+                    <dd><%= @user.username %></dd>
+                  <dt>Email :</dt>
+                    <dd><%= @user.email %></dd>
+                  <dt>Admin :</dt>
+                    <dd><%= @user.admin %></dd>
+                </dl>
+              </div> <!-- /tab-pane active -->
+            </div> <!-- /tab-content -->
+          </div> <!-- /tabbable -->
+        </div> <!-- /widget-content -->
+      </div> <!-- /widget -->
+    </div> <!-- /span8 -->
+
+    <div class="span4">
+      <div class="widget widget-box">
+        <div class="widget-header">
+          <h3>Extra Info</h3>
+        </div> <!-- /widget-header -->
+
+        <div class="widget-content">
+          <p>Created At: <%= @user.created_at.to_s(:datetime).humanize %></p>
+
+          <p>Last Edited: <%= @user.updated_at.to_s(:datetime).humanize %></p>
+
+          <p>Login Count: <%= @user.sign_in_count %></p>
+
+          <p>Last Sign In: <%if @user.last_sign_in_at.blank? %>Never logged in<% else %><%= time_ago_in_words(current_user.last_sign_in_at.to_datetime)+' ago' %><% end %></p>
+        </div> <!-- /widget-content -->
+      </div> <!-- /widget-box -->
+    </div> <!-- /span4 -->
+  </div> <!-- /row -->
+</div>
