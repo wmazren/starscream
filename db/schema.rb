@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20120829094734) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "name",         :default => "", :null => false
-    t.integer  "user_limit",   :default => 5,  :null => false
+    t.string   "name",         :default => "",  :null => false
+    t.integer  "user_limit",   :default => 500, :null => false
     t.date     "renewal_date"
     t.date     "expiry_date"
     t.string   "phone"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20120829094734) do
     t.string   "postcode"
     t.string   "state"
     t.string   "country"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "accounts", ["name"], :name => "index_accounts_on_name", :unique => true

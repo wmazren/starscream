@@ -2,7 +2,7 @@ class CreateAccounts < ActiveRecord::Migration
   def change
     create_table :accounts do |t|
       t.string  :name,       :null => false, :default => ""
-      t.integer :user_limit, :null => false, :default => 5
+      t.integer :user_limit, :null => false, :default => 500
       t.date    :renewal_date
       t.date    :expiry_date
       t.string  :phone

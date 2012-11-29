@@ -4,7 +4,7 @@ development:
   database: starscream_dev
   pool: 5
   username: root
-  password: secret
+  password: skyl1n31
   socket: /var/run/mysqld/mysqld.sock
 
 test:
@@ -13,7 +13,7 @@ test:
   database: starscream_test
   pool: 5
   username: root
-  password: secret
+  password: skyl1n31
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -22,5 +22,5 @@ production:
   database: starscream_db
   pool: 5
   username: root
-  password: secret
+  password: skyl1n31
   socket: /var/run/mysqld/mysqld.sock
